@@ -9,15 +9,20 @@ Describe howto run your test...
 
 
 
-python -m venv venv source venv/bin/activate  
+pip install python-dotenv
 
 pip install -r requirements.txt
 
+docker build -t oricha/helm-hiring:0.0.1 .
+docker push oricha/helm-hiring:0.0.1 
 
-export SECRET_KEY=yoursecretkey
-export DEBUG=True
-export DATABASE_NAME=yourdbname
-export DATABASE_USER=yourdbuser
-export DATABASE_PASSWORD=yourdbpassword
-export DATABASE_HOST=localhost
-export DATABASE_PORT=yourdbport
+
+/opt/homebrew/opt/postgresql@14
+
+pip install psycopg2 --install-option="--pg-config=/opt/homebrew/opt/postgresql@14"
+
+ls /opt/homebrew/opt/postgresql@14/bin/pg_config
+
+export PATH=$PATH:/opt/homebrew/opt/postgresql@14/bin/pg_config
+
+source ~/.zshrc
