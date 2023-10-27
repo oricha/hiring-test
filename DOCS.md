@@ -8,14 +8,12 @@ pip install python-dotenv
 pip install psycopg2
 pip install psycopg2-binary
 
+## Run and deploy 
+
 - docker-compose up
-- helm create django-app
-- helm upgrade --install --wait django-app ./hiring-test-helm-chart
-- minikube service django-app
+- kubectl config use-context <MY-cluster-context>
+- helm install my-release ./hiring-test-helm-chart
 
-
-docker build -t oricha/helm-hiring:0.0.1 .
-docker push oricha/helm-hiring:0.0.1 
 
 
 

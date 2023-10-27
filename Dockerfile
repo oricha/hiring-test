@@ -13,7 +13,7 @@ COPY requirements.txt /app/
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY .. /app/
+COPY . /app
 
 # Set environment variables
 ENV SECRET_KEY c2VjcmV0LWtleS1nb2VzLWhlcmU=

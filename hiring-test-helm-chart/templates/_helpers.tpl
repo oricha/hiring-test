@@ -60,3 +60,14 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Common labels
+*/}}
+{{- define "hiring-test-helm-chart.commonLabels" -}}
+app.kubernetes.io/name: {{ include "hiring-test-helm-chart" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+{{- if .Values.commonLabels }}
+{{- toYaml .Values.commonLabels | nindent 4 }}
+{{- end }}
+{{- end }}
